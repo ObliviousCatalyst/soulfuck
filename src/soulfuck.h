@@ -14,7 +14,7 @@ struct SfEnvironment {
 int setupEnv (SfEnvironment* env) {
 	(*env).pointer = 0;
 	(*env).arrLength = 256;
-	(*env).pointer = (int*)calloc(256, sizeof(int));
+	(*env).array = (int*)calloc(256, sizeof(int));
 }
 
 void execSf (char* sfCode, SfEnvironment* env) {
