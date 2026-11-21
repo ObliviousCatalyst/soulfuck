@@ -72,6 +72,16 @@ void execSf (char* sfCode, SfEnvironment* env) {
 					pt++;
 				}
 			break;
+
+			case 'c':
+			case 'C':
+				env->stored = env->array[env->pointer];
+			break;
+
+			case 'p':
+			case 'P':
+				env->array[env->pointer] = env->stored;
+			break;
 		}
 	}
 }
