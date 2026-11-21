@@ -58,7 +58,7 @@ void execSf (char* sfCode, SfEnvironment* env) {
 					break;
 				}
 				if (env->array[env->pointer] != 0) {
-					pt = loopback;;
+					pt = loopback;
 				}
 			break;
 
