@@ -40,13 +40,11 @@ void execSf (char* sfCode, SfEnvironment* env) {
 			break;
 
 			case '.':
-				printf("%d", env->array[env->pointer]);
+				printf("%c", (char)env->array[env->pointer]);
 			break;
 
 			case ',':
-				printf("\ninput: ");
 				scanf("%d", &env->array[env->pointer]);
-				printf("\n");
 			break;
 
 			case '[':
