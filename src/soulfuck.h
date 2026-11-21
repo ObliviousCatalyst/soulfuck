@@ -25,10 +25,16 @@ void execSf (char* sfCode, SfEnvironment* env) {
 		switch (current) {
 			case '>':
 				env->pointer++;
+				if (env->pointer > env->arrLength - 1) {
+					env->pointer = 0;
+				}
 			break;
 
 			case '<':
 				env->pointer--;
+				if (env->pointer < 0) {
+					env->pointer = env->arrLength - 1;
+				}
 			break;
 
 			case '+':
