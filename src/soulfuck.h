@@ -71,6 +71,7 @@ void execSf (char* sfCode, SfEnvironment* env) {
 				while (sfCode[pt] != '#') {
 					pt++;
 				}
+				pt++;
 			break;
 
 			case 'c':
