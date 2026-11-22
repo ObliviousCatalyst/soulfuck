@@ -25,7 +25,7 @@ void execSf (char* sfCode, SfEnvironment* env) {
 		switch (current) {
 			case '>':
 				env->pointer++;
-				if (env->pointer > env->arrLength - 1) {
+				if (env->pointer >= env->arrLength) {
 					env->pointer = 0;
 				}
 			break;
@@ -82,6 +82,25 @@ void execSf (char* sfCode, SfEnvironment* env) {
 			case 'P':
 				env->array[env->pointer] = env->stored;
 			break;
+
+			case 'e':
+			case 'E': {
+				int errcode = 0;
+				env->array = safeRealloc(env->array, sizeof(int) * (env->arrLength + 256), &errcode);
+				env->array[env->pointer] = errcode;
+			} break;
+
+			case 'r':
+			case 'R': {
+				int errcode = 0;
+				env->array = safeRealloc(env->array, sizeof(int) * (env->arrLength - 256), &errcode);
+				if (env->pointer >= env->arrLength) {
+					env->pointer = env->arrLength - 1;
+				}
+				else {
+					env->array[env->pointer] = errcode;
+				}
+			} break;
 		}
 	}
 }
